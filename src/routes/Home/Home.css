@@ -1,0 +1,53 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.form-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-filter input {
+  margin-bottom: 0;
+  border-radius: 3rem;
+}
+
+.form-group {
+  flex-basis: 90%;
+}
+
+.search-btn {
+  flex-basis: 10%;
+  border: 1px solid red;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 450px) {
+  .form-filter {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form-filter {
+    
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .form-filter {
+    width: 40%;
+  }
+}
