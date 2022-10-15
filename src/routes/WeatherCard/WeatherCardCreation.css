@@ -5,7 +5,7 @@
 }
 
 .form-title {
-  color: white;
+  color: var(--text);
   position: relative;
   margin-bottom: 2.5rem;
 }
@@ -16,7 +16,7 @@
   height: 4px;
   content: "";
   bottom: -10px;
-  background: #fff;
+  background: var(--text);
   position: absolute;
 }
 
@@ -48,7 +48,7 @@
   padding: 0.625rem 1.25rem;
   width: 100%;
   box-sizing: border-box;
-  color: #fff;
+  color: var(--text);
   border-radius: 2.1875rem;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -65,7 +65,7 @@
   border-radius: 2.1875rem;
   border: none;
   background-color: rgba(255, 255, 255, 0.06);
-  color: white;
+  color: var(--text);
   backdrop-filter: blur(20px);
 }
 

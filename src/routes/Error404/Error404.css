@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #dddd;
+  color: var(--text);
 }
 
 .error-container {
@@ -67,7 +67,7 @@
 
 .drop {
   opacity: 1;
-  background: #ffff;
+  background: var(--white);
   display: block;
   float: left;
   width: 3px;
@@ -162,9 +162,9 @@
   display: block;
   padding: 0.8rem;
   margin-bottom: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  color: white;
+  background-color: var(--bg-btn);
+  backdrop-filter: blur(1.25rem);
+  color: var(--white);
   font-size: 1rem;
   text-decoration: none;
   text-align: center;

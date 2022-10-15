@@ -55,9 +55,6 @@ const Navigation = () => {
             <img src={logo} alt="logo" className="logo" />
           </Link>
           <div className="header-btns">
-            <button className="btn-icon">
-              <FaRegMoon />
-            </button>
             <button className="btn-icon" onClick={handleClick}>
               <FaAlignJustify />
             </button>
@@ -79,7 +76,7 @@ const Navigation = () => {
               </Link>
             </li>
 
-            {currentUser && (
+            {currentUser?.username && (
               <li className="nav-item">
                 <Link className="nav-link add-more" to="/weather-card/create">
                   <FaPlus />
@@ -87,7 +84,8 @@ const Navigation = () => {
                 </Link>
               </li>
             )}
-            {currentUser && (
+
+            {currentUser?.username && (
               <li className="nav-item">
                 <Link className="nav-link">
                   <FaRegStar />
@@ -97,7 +95,7 @@ const Navigation = () => {
             )}
 
             <li className="nav-item">
-              {currentUser ? (
+              {currentUser?.username ? (
                 <Link className="nav-link" to="login" onClick={handleSignOut}>
                   <FaUserMinus />
                   <span className="nav-link-text">Logout</span>

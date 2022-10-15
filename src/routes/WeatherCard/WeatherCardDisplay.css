@@ -1,6 +1,6 @@
 .weather-card-detail {
   text-align: center;
-  color: #dddd;
+  color: var(--text);
   margin-bottom: 4rem;
   width: 90%;
   margin-left: auto;

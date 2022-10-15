@@ -15,7 +15,6 @@ const Home = () => {
     const dataStored = localStorage.getItem("data");
 
     if (dataStored) {
-      console.log("dataStored => ", dataStored);
       const dataParsed = JSON.parse(dataStored);
       setCurrentUser(dataParsed.user);
     }
