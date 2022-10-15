@@ -2,7 +2,7 @@ import "./Card.css";
 import { useContext, useEffect, useState } from "react";
 import { getImageByCode, getWeather } from "../../api/service";
 import { Link } from "react-router-dom";
-import { FaEllipsisH, FaTrashAlt, FaStar } from "react-icons/fa";
+import { FaEllipsisH, FaTrashAlt } from "react-icons/fa";
 import { WeatherCardsContext } from "../../context/WeatherCardsContext";
 
 const Card = ({ card }) => {
@@ -75,7 +75,6 @@ const Card = ({ card }) => {
           <FaEllipsisH className="menu-dropdown" />
           <div className="top-bar-btn-actions">
             <FaTrashAlt className="btn delete" onClick={handleEliminate} />
-            
           </div>
         </div>
       </div>
