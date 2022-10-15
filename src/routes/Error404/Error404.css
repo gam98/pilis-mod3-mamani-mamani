@@ -1,11 +1,14 @@
 .error404 {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   color: #dddd;
+}
+
+.error-container {
+  border-radius: 0.5rem;
 }
 
 .error-title {
@@ -17,6 +20,9 @@
 .error-card {
   width: 60%;
   position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .sun {
@@ -148,9 +154,20 @@
 }
 
 .btn-go-to-home {
-  border: none;
   width: 50%;
   cursor: pointer;
+  border-radius: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -166,7 +183,7 @@
   }
 
   .error-card {
-    width: 15%;
+    width: 55%;
     position: relative;
   }
 
@@ -175,6 +192,6 @@
   }
 
   .btn-go-to-home {
-    width: 15%;
+    width: 35%;
   }
 }

@@ -1,47 +1,61 @@
 import "./Login.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { setCurrentUser } = useContext(UserContext);
+  const [dataParsed, setDataParsed] = useState({});
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
 
   let dataStored;
-  let dataParsed;
+  // let dataParsed;
   let dataToStorage;
 
   useEffect(() => {
     dataStored = localStorage.getItem("data");
 
     if (dataStored) {
-      dataParsed = JSON.parse(dataStored);
+      console.log("dataStored => ", dataStored);
+      // dataParsed = JSON.parse(dataStored);
+      setDataParsed(JSON.parse(dataStored));
     } else {
-      dataToStorage = {
-        user: {},
-        weathers: [],
-      };
+      dataToStorage = { user: {}, weathers: [] };
+      console.log("dataToStorage => ", dataToStorage);
     }
   }, []);
 
   const onSubmit = (user) => {
     if (!dataParsed) {
+      console.log("dataParsed", dataParsed);
+      console.log("hiiii");
+      console.log("dataToStorage => ", dataToStorage);
       dataToStorage.user = {
         username: user.username,
         password: user.password,
       };
+
       localStorage.setItem("data", JSON.stringify(dataToStorage));
     } else {
+      setDataParsed();
+
       dataParsed.user = {
         username: user.username,
         password: user.password,
       };
+
+      // dataParsed.user = {
+      //   username: user.username,
+      //   password: user.password,
+      // };
+
       localStorage.setItem("data", JSON.stringify(dataParsed));
     }
     setCurrentUser(user);
@@ -73,7 +87,7 @@ const Login = () => {
                     required: "Must enter a username",
                   })}
                 />
-                <p>{errors.username?.message}</p>
+                <p className="error-msg">{errors.username?.message}</p>
               </div>
               <div className="input__box">
                 <input
@@ -83,7 +97,7 @@ const Login = () => {
                     required: "Must enter a password",
                   })}
                 />
-                <p>{errors.password?.message}</p>
+                <p className="error-msg">{errors.password?.message}</p>
               </div>
               <div className="input__box">
                 <input type="submit" value="Submit" />

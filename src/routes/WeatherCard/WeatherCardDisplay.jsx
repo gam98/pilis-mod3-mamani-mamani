@@ -1,5 +1,4 @@
 import "./WeatherCardDisplay.css";
-
 import { FaWind, FaTint, FaThermometerThreeQuarters } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
@@ -18,7 +17,6 @@ const WeatherCardDisplay = () => {
 
   useEffect(() => {
     if (!weather) {
-      console.log("cuando se recarga... ");
       const dataStored = localStorage.getItem("data");
       const dataParsed = JSON.parse(dataStored);
 
@@ -26,22 +24,14 @@ const WeatherCardDisplay = () => {
         (weather) => weather.id === id
       );
 
-      console.log("weather => ", weather);
       getInfoToShow(weather);
       return;
     }
 
     getInfoToShow(weather);
-
-    if (!weather.temperature) {
-      console.log("weather => ", weather);
-      console.log("sin contexto solo ls...");
-      getInfoToShow(weather);
-    }
   }, []);
 
   const getInfoToShow = (value) => {
-    console.log("hiii");
     getAllImages()
       .then((images) => {
         const getImage = (code, time = 7) => {
@@ -57,7 +47,7 @@ const WeatherCardDisplay = () => {
 
         getDetailsWeather(value)
           .then((data) => {
-            setWeatherInformation(data);
+            setWeatherInformation({ ...data, cityName: value.cityName });
 
             const foundIndex = data.hourly.time.findIndex(
               (item) => item === data.current_weather.time
@@ -117,7 +107,7 @@ const WeatherCardDisplay = () => {
   return (
     <section className="weather-card-detail">
       <div className="left">
-        <h4 className="city-name">{weatherInformation?.timezone}</h4>
+        <h4 className="city-name">{weatherInformation?.cityName}</h4>
         <div className="current-weather glassmorphism">
           <span className="current-date">{currentInfo.time}</span>
           <p className="current-weather-description">
@@ -133,7 +123,7 @@ const WeatherCardDisplay = () => {
         <img
           className="weather-img"
           src={currentInfo.weatherImage}
-          alt="time image"
+          alt="icon weather"
         />
       </div>
 
