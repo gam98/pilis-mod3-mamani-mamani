@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/pilis-mod3-mamani-mamani/static/css/main.08945f34.css",
+    "main.js": "/pilis-mod3-mamani-mamani/static/js/main.5df52263.js",
+    "static/js/787.351aa974.chunk.js": "/pilis-mod3-mamani-mamani/static/js/787.351aa974.chunk.js",
+    "static/media/sun.svg": "/pilis-mod3-mamani-mamani/static/media/sun.966f02c46c8eeed992bfca326b461951.svg",
+    "index.html": "/pilis-mod3-mamani-mamani/index.html",
+    "static/media/cloud.svg": "/pilis-mod3-mamani-mamani/static/media/cloud.0f67562ac56c026037f77f2315864923.svg",
+    "main.08945f34.css.map": "/pilis-mod3-mamani-mamani/static/css/main.08945f34.css.map",
+    "main.5df52263.js.map": "/pilis-mod3-mamani-mamani/static/js/main.5df52263.js.map",
+    "787.351aa974.chunk.js.map": "/pilis-mod3-mamani-mamani/static/js/787.351aa974.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08945f34.css",
+    "static/js/main.5df52263.js"
+  ]
+}
