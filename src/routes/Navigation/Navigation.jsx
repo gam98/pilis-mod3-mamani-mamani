@@ -11,18 +11,33 @@ const Navigation = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [clicked, setClicked] = useState(false);
-
+  let dataParsed;
   useEffect(() => {
     const dataStored = localStorage.getItem("data");
 
     if (dataStored) {
-      const dataParsed = JSON.parse(dataStored);
+      dataParsed = JSON.parse(dataStored);
       setCurrentUser(dataParsed.user);
     }
   }, []);
 
   const handleSignOut = () => {
     setCurrentUser(null);
+    if (dataParsed) {
+      localStorage.setItem(
+        "data",
+        JSON.stringify({ user: {}, weathers: [dataParsed.weathers] })
+      );
+      return;
+    }
+
+    const dataStored = localStorage.getItem("data");
+    dataParsed = JSON.parse(dataStored);
+
+    localStorage.setItem(
+      "data",
+      JSON.stringify({ user: {}, weathers: dataParsed.weathers })
+    );
   };
 
   const handleClick = () => {
@@ -63,19 +78,7 @@ const Navigation = () => {
                 <span className="nav-link-text">Home</span>
               </Link>
             </li>
-            <li className="nav-item">
-              {currentUser ? (
-                <Link className="nav-link" to="login" onClick={handleSignOut}>
-                  <FaUserMinus />
-                  <span className="nav-link-text">Logout</span>
-                </Link>
-              ) : (
-                <Link className="nav-link" to="login">
-                  <FaUserPlus />
-                  <span className="nav-link-text">Login</span>
-                </Link>
-              )}
-            </li>
+
             {currentUser && (
               <li className="nav-item">
                 <Link className="nav-link add-more" to="/weather-card/create">
@@ -92,11 +95,19 @@ const Navigation = () => {
                 </Link>
               </li>
             )}
+
             <li className="nav-item">
-              <Link className="nav-link">
-                <FaRegMoon />
-                <span className="nav-link-text">Theme</span>
-              </Link>
+              {currentUser ? (
+                <Link className="nav-link" to="login" onClick={handleSignOut}>
+                  <FaUserMinus />
+                  <span className="nav-link-text">Logout</span>
+                </Link>
+              ) : (
+                <Link className="nav-link" to="login">
+                  <FaUserPlus />
+                  <span className="nav-link-text">Login</span>
+                </Link>
+              )}
             </li>
           </ul>
         </nav>

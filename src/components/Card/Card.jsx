@@ -1,5 +1,4 @@
 import "./Card.css";
-import { FaHeart } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { getImageByCode, getWeather } from "../../api/service";
 import { Link } from "react-router-dom";
@@ -7,44 +6,57 @@ import { FaEllipsisH, FaTrashAlt, FaStar } from "react-icons/fa";
 import { WeatherCardsContext } from "../../context/WeatherCardsContext";
 
 const Card = ({ card }) => {
-  // const { id, temperature, latitude, longitude, city, windspeed, weathercode } =
-  //   card;
   const { id, weathercode } = card;
-  const [weather, setWeather] = useState(card);
 
   const { weatherCards, setWeatherCards } = useContext(WeatherCardsContext);
 
+  const [weather, setWeather] = useState(card);
+
   const [dataParsed, setDataParsed] = useState({});
 
-  const [weatherImage, setWeatherImage] = useState({});
-
-  let dataStored;
+  const [weatherImageContent, setWeatherImageContent] = useState({});
 
   useEffect(() => {
-    dataStored = localStorage.getItem("data");
+    const dataStored = localStorage.getItem("data");
     setDataParsed(JSON.parse(dataStored));
 
     if (!weather.temperature) {
       getWeather(weather)
         .then((response) => {
-          setWeather({ ...response, id });
-          getImageByCode(response.current_weather.weathercode)
-            .then((response) => {
-              setWeatherImage(response);
-            })
-            .catch((error) => console.log(error));
+          setWeather({ ...response, cityName: weather.cityName, id });
+
+          configTime(
+            response.current_weather.time,
+            response.current_weather.weathercode
+          );
         })
         .catch((error) => console.log(error));
 
       return;
     }
 
-    getImageByCode(weathercode)
+    const time = weather.time.slice(11, 13);
+
+    configTime(time, weathercode);
+  }, []);
+
+  const configTime = (time, code) => {
+    getImageByCode(code)
       .then((response) => {
-        setWeatherImage(response);
+        if (Number(time) > 19 || Number(time) < 7) {
+          setWeatherImageContent({
+            momentTime: "Night",
+            momentImage: response.night.path,
+          });
+        } else {
+          setWeatherImageContent({
+            momentTime: "Day",
+            momentImage: response.day.path,
+          });
+        }
       })
       .catch((error) => console.log(error));
-  }, []);
+  };
 
   const handleEliminate = () => {
     const filteredData = weatherCards.filter((weather) => weather.id !== id);
@@ -58,7 +70,7 @@ const Card = ({ card }) => {
   return (
     <section className="card glassmorphism">
       <div className="top-bar">
-        <span className="day">Day</span>
+        <span>{weatherImageContent.momentTime}</span>
         <div className="top-bar-action">
           <FaEllipsisH className="menu-dropdown" />
           <div className="top-bar-btn-actions">
@@ -70,8 +82,8 @@ const Card = ({ card }) => {
 
       <img
         className="time"
-        src={weatherImage.day?.path}
-        alt={"weatherImage?.description[0]"}
+        src={weatherImageContent.momentImage}
+        alt="icon weather"
       />
 
       <h2 className="temperature">
@@ -81,7 +93,7 @@ const Card = ({ card }) => {
         °C
       </h2>
 
-      <h3 className="city">{weather.timezone}</h3>
+      <h3 className="city">{weather.cityName}</h3>
 
       <div className="details">
         <div className="detail">

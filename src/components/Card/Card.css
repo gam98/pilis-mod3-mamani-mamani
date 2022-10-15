@@ -122,8 +122,11 @@
   margin-bottom: 1rem;
 }
 
+.card-empty-title {
+  text-align: center;
+}
+
 .btn-add-new-card {
-  border: 1px solid rebeccapurple;
   text-decoration: none;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -134,6 +137,7 @@
   text-align: center;
   border-radius: 0.5rem;
   color: white;
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 @media screen and (min-width: 450px) {

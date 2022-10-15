@@ -26,9 +26,9 @@ const WeatherCardCreation = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      timezone: "Europe/London",
-      latitude: "51.5002",
-      longitude: "-0.1262",
+      cityName: "San salvador de jujuy",
+      latitude: "-24.1995",
+      longitude: "-65.3024",
     },
   });
 
@@ -40,7 +40,7 @@ const WeatherCardCreation = () => {
 
         const newWeatherCardInfo = {
           id: crypto.randomUUID(),
-          timezone: data.timezone,
+          cityName: data.cityName,
           latitude: data.latitude,
           longitude: data.longitude,
           temperature,
@@ -53,7 +53,7 @@ const WeatherCardCreation = () => {
 
         const weatherToStorage = {
           id: newWeatherCardInfo.id,
-          timezone: newWeatherCardInfo.timezone,
+          cityName: newWeatherCardInfo.cityName,
           latitude: newWeatherCardInfo.latitude,
           longitude: newWeatherCardInfo.longitude,
         };
@@ -77,16 +77,16 @@ const WeatherCardCreation = () => {
         <h2 className="form-title">Create a new card</h2>
 
         <div className="form-group">
-          <label htmlFor="timezone"></label>
+          <label htmlFor="cityName"></label>
           <input
-            type="timezone"
+            type="text"
             placeholder="Enter city"
-            id="city"
-            {...register("timezone", {
+            id="cityName"
+            {...register("cityName", {
               required: "Must enter a city name",
             })}
           />
-          <p>{errors.timezone?.message}</p>
+          <p className="error-msg">{errors.cityName?.message}</p>
         </div>
 
         <div className="form-group">
@@ -99,7 +99,7 @@ const WeatherCardCreation = () => {
               required: "Must enter a latitude",
             })}
           />
-          <p>{errors.latitude?.message}</p>
+          <p className="error-msg">{errors.latitude?.message}</p>
         </div>
 
         <div className="form-group">
@@ -112,11 +112,11 @@ const WeatherCardCreation = () => {
               required: "Must enter a longitude",
             })}
           />
-          <p>{errors.longitude?.message}</p>
+          <p className="error-msg">{errors.longitude?.message}</p>
         </div>
 
         <button type="submit" className="btn-generate-new-card">
-          Generate
+          Create
         </button>
       </form>
     </div>
