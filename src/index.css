@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --text: #d5d5d5;
+  --red: #d5090a;
+  --yellow: #fbb238;
+  --white: #fff;
+  --bg-btn: rgba(255, 255, 255, 0.06);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: url(https://i.ibb.co/q1zGjyw/background.png) no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+.glassmorphism {
+  backdrop-filter: blur(1.25rem);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heavy-glassmorphism {
+  backdrop-filter: blur(10rem);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heavy-glassmorphism-menu {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10rem);
+}
+
+.error-msg {
+  color: var(--red);
+}
+
+@media screen and (min-width: 768px) {
+  .heavy-glassmorphism-menu {
+    background: transparent;
+    backdrop-filter: none;
+    border-top: none;
+  }
 }

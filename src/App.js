@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./routes/Home/Home";
+import { Login } from "./routes/Login/Login";
+import { Navigation } from "./routes/Navigation/Navigation";
+import { WeatherCardCreation } from "./routes/WeatherCard/WeatherCardCreation";
+import { WeatherCardDisplay } from "./routes/WeatherCard/WeatherCardDisplay";
+import { Error404 } from "./routes/Error404/Error404";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="weather-card/create" element={<WeatherCardCreation />} />
+          <Route path="weather-card/:id" element={<WeatherCardDisplay />} />
+          <Route path="*" element={<Error404 />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

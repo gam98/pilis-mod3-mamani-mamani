@@ -1,0 +1,167 @@
+.card {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 20px 20px 22px rbga(0, 0, 0, 0.2);
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-bar-action {
+  position: relative;
+}
+
+.top-bar-btn-actions {
+  position: absolute;
+  width: 500%;
+  right: 0;
+}
+
+.menu-dropdown {
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  display: block;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+
+.btn.delete,
+.btn.favorite {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 80%;
+  margin-bottom: 0.3rem;
+}
+
+.btn.favorite {
+  color: var(--yellow);
+}
+
+.btn.delete {
+  color: var(--red);
+}
+
+.time {
+  display: block;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.temperature {
+  font-size: 3rem;
+  margin-top: -2rem;
+  margin-bottom: 0;
+}
+
+.city {
+  margin-top: 0;
+}
+
+.details {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail {
+  flex-basis: 33%;
+}
+
+.detail-name {
+  font-size: 0.8rem;
+}
+
+.detail-number {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.unit-of-measurement {
+  font-size: 0.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn.show-more {
+  width: 50%;
+  line-height: 3rem;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.card-empty {
+  color: var(--text);
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+}
+
+.card-empty-title {
+  text-align: center;
+}
+
+.btn-add-new-card {
+  text-decoration: none;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 0.5rem;
+  color: var(--text);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+@media screen and (min-width: 450px) {
+  .card {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 50%;
+    margin-left: initial;
+    margin-right: initial;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    width: 25%;
+  }
+
+  .card-empty {
+    margin-top: 8rem;
+  }
+}
