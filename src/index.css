@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: url(https://i.ibb.co/q1zGjyw/background.png) no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+.glassmorphism {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heavy-glassmorphism {
+  backdrop-filter: blur(10rem);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heavy-glassmorphism-menu {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10rem);
+}
+
+.error-msg {
+  color: #ff0000;
+}
+
+@media screen and (min-width: 768px) {
+  .heavy-glassmorphism-menu {
+    background: transparent;
+    backdrop-filter: none;
+    border-top: none;
+  }
+}
