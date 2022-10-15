@@ -75,7 +75,7 @@ const Card = ({ card }) => {
           <FaEllipsisH className="menu-dropdown" />
           <div className="top-bar-btn-actions">
             <FaTrashAlt className="btn delete" onClick={handleEliminate} />
-            <FaStar className="btn favorite" />
+            
           </div>
         </div>
       </div>
