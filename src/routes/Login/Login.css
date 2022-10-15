@@ -88,7 +88,7 @@
 }
 
 .form h2 {
-  color: #fff;
+  color: var(--white);
   font-size: 1.5rem;
   font-weight: 600;
   position: relative;
@@ -102,7 +102,7 @@
   height: 4px;
   content: "";
   bottom: -10px;
-  background: #fff;
+  background: var(--white);
   position: absolute;
 }
 
@@ -114,7 +114,7 @@
 .form .input__box input {
   box-sizing: border-box;
   width: 100%;
-  color: #fff;
+  color: var(--text);
   border: none;
   outline: none;
   font-size: 1rem;
@@ -129,13 +129,13 @@
 }
 
 .form input::placeholder {
-  color: #fff;
+  color: var(--white);
 }
 
 .form .input__box input[type="submit"] {
   color: #555;
   cursor: pointer;
-  background: #fff;
+  background: var(--text);
   max-width: 100px;
   font-weight: 600;
   margin-bottom: 1.25rem;

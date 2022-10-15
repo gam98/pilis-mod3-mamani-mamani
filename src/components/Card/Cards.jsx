@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import { Card } from "./Card";
 
 const Cards = ({ cards, search, currentUser }) => {
-  console.log("currentUser => ", currentUser === true);
   return (
     <section className="cards-container">
-      {!cards.length && search && <p>No matches</p>}
+      {!cards.length && search && <p className="no-matches">No matches</p>}
 
       {cards.length || search ? (
         cards.map((card) => <Card key={card.id} card={card} />)
       ) : (
         <div className="card-empty">
-          {currentUser ? (
+          {currentUser?.username ? (
             <>
               <h2 className="card-empty-title">There are not cards yet</h2>
               <Link className="btn-add-new-card" to="/weather-card/create">

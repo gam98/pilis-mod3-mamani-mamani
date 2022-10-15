@@ -3,7 +3,7 @@
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 20px 20px 22px rbga(0, 0, 0, 0.2);
-  color: #d5d5d5;
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
@@ -45,11 +45,11 @@
 }
 
 .btn.favorite {
-  color: #fbb238;
+  color: var(--yellow);
 }
 
 .btn.delete {
-  color: #d5090a;
+  color: var(--red);
 }
 
 .time {
@@ -105,11 +105,11 @@
   width: 50%;
   line-height: 3rem;
   font-size: 1rem;
-  color: #d5d5d5;
+  color: var(--text);
 }
 
 .card-empty {
-  color: white;
+  color: var(--text);
   padding: 1rem;
   border-radius: 0.5rem;
 
@@ -136,7 +136,7 @@
   margin-right: auto;
   text-align: center;
   border-radius: 0.5rem;
-  color: white;
+  color: var(--text);
   background-color: rgba(255, 255, 255, 0.06);
 }
 

@@ -16,27 +16,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   let dataStored;
-  // let dataParsed;
   let dataToStorage;
 
   useEffect(() => {
     dataStored = localStorage.getItem("data");
 
     if (dataStored) {
-      console.log("dataStored => ", dataStored);
-      // dataParsed = JSON.parse(dataStored);
       setDataParsed(JSON.parse(dataStored));
     } else {
       dataToStorage = { user: {}, weathers: [] };
-      console.log("dataToStorage => ", dataToStorage);
     }
   }, []);
 
   const onSubmit = (user) => {
     if (!dataParsed) {
-      console.log("dataParsed", dataParsed);
-      console.log("hiiii");
-      console.log("dataToStorage => ", dataToStorage);
       dataToStorage.user = {
         username: user.username,
         password: user.password,
@@ -44,19 +37,13 @@ const Login = () => {
 
       localStorage.setItem("data", JSON.stringify(dataToStorage));
     } else {
-      setDataParsed();
-
-      dataParsed.user = {
-        username: user.username,
-        password: user.password,
-      };
-
-      // dataParsed.user = {
-      //   username: user.username,
-      //   password: user.password,
-      // };
-
-      localStorage.setItem("data", JSON.stringify(dataParsed));
+      localStorage.setItem(
+        "data",
+        JSON.stringify({
+          user: { username: user.username, password: user.password },
+          weathers: dataParsed.weathers ? [...dataParsed.weathers] : [],
+        })
+      );
     }
     setCurrentUser(user);
     navigate("/");
