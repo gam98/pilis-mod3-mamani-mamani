@@ -1,7 +1,7 @@
 import "./Navigation.css";
 import { Link, Outlet } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { FaPlus, FaRegStar, FaRegMoon, FaAlignJustify } from "react-icons/fa";
+import { FaPlus, FaAlignJustify } from "react-icons/fa";
 import { BiHome } from "react-icons/bi";
 import { FaUserMinus, FaUserPlus } from "react-icons/fa";
 import { UserContext } from "../../context/UserContext";
@@ -81,15 +81,6 @@ const Navigation = () => {
                 <Link className="nav-link add-more" to="/weather-card/create">
                   <FaPlus />
                   <span className="nav-link-text">Create</span>
-                </Link>
-              </li>
-            )}
-
-            {currentUser?.username && (
-              <li className="nav-item">
-                <Link className="nav-link">
-                  <FaRegStar />
-                  <span className="nav-link-text">Favorites</span>
                 </Link>
               </li>
             )}
